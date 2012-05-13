@@ -111,7 +111,7 @@ sweg.update = function(dt) {
 				slomoTime = 0;
 			}
 		} else {
-			slomoTime += dt;
+			slomoTime += (dt / 3);
 			if (slomoTime >= maxSlomoTime) {
 				slomoTime = maxSlomoTime;
 				slomoCooldown = false;

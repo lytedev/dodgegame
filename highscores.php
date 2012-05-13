@@ -37,14 +37,12 @@ function getHighscores($maxEntries = 5, $file = "highscores.txt") {
 }
 
 function printHighscores($data = false, $maxEntries = 5, $file = "highscores.txt") {
-
 	if ($data === false) { $data = getHighscores(); }
 	$max = count($data);
 	if ($maxEntries < $max) { $max = $maxEntries; }
 	for ($i = 0; $i < $max; $i++) {
 		echo ($i + 1) . ". "; ?><strong><?php echo $data[$i][0]; ?></strong>: <em><?php echo $data[$i][1]; ?></em></p><?php 
-	}
-	
+	}	
 }
 
 function saveHighscores($data, $maxEntries = 5, $file = "highscores.txt") {

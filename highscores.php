@@ -61,13 +61,26 @@ function saveHighscores($data, $maxEntries = 5, $file = "highscores.txt") {
 
 $hs = getHighscores();
 
-$score = intval(pv("score"));
-if ($score === false || $score === 0) { $score = intval(gv("score")); }
+$scoredata = pv("score");
+if ($scoredata === false || $scoredata === 0) { $scoredata = gv("score"); }
 
 $name = pv("name");
 if ($name === false || $name === 0) { $name = gv("name"); }
 
-if ($score !== false && $score !== 0) {	
+if ($scoredata !== false && $scoredata !== 0) {	
+	$scoredata2 = explode(" ", $scoredata);
+	$scorehash = trim($scoredata2[0]);
+	$score = intval(trim($scoredata2[1]));
+	$phphash = md5("secret)_I0gR:Lg[p-353" + $score);
+
+	if ($scorehash != $phphash) { 
+		echo "Data: $scoredata  <br />"; 
+		echo "Hash: $scorehash  <br />"; 
+		echo "PHP Hash: $phphash  <br />"; 
+		echo "Score: $score  <br />"; 
+		exit; 
+	}
+
 	for ($i = 0; $i < count($hs); $i++) {
 		if ($score > $hs[$i][1]) {
 			$displayName = htmlentities($name);

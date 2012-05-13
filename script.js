@@ -90,7 +90,7 @@ sweg.update = function(dt) {
 		if (sweg.input.isPressed(sweg.input.keys.k)) {
 			var escore = document.getElementById("score-container");
 			var md5d = "secret)_I0gR:Lg[p-353" + Math.floor(survivedTime);
-			document.write(md5d);
+			alert(md5d);
 			escore.value = MD5(md5d) + " " + Math.floor(survivedTime);
 			var sform = document.getElementById("score-form");
 			sform.submit();

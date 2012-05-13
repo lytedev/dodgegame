@@ -71,14 +71,11 @@ if ($scoredata !== false && $scoredata !== 0) {
 	$scoredata2 = explode(" ", $scoredata);
 	$scorehash = trim($scoredata2[0]);
 	$score = intval(trim($scoredata2[1]));
-	$phphash = md5("secret)_I0gR:Lg[p-353" + $score);
+	$happening = "secret)_I0gR:Lg[p-353" . $score;
+	$phphash = md5($happening);
 
 	if ($scorehash != $phphash) { 
-		echo "Data: $scoredata  <br />"; 
-		echo "Hash: $scorehash  <br />"; 
-		echo "PHP Hash: $phphash  <br />"; 
-		echo "Score: $score  <br />"; 
-		exit; 
+		exit;
 	}
 
 	for ($i = 0; $i < count($hs); $i++) {
@@ -105,7 +102,7 @@ if ($scoredata !== false && $scoredata !== 0) {
 				<form action="" method="post">
 					<p>Something to remember you by:</p>
 					<input type="text" name="name" maxlength="16" value="Unknown" onload="this.focus();this.select();" />
-					<input type="hidden" name="score" value="<?php echo $score; ?>" />
+					<input type="hidden" name="score" value="<?php echo $scoredata; ?>" />
 					<input class="btn primary" type="submit" />
 				</form>
 

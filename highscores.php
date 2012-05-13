@@ -75,6 +75,7 @@ if ($scoredata !== false && $scoredata !== 0) {
 	$phphash = md5($happening);
 
 	if ($scorehash != $phphash) { 
+		echo "Illegal score: " . $score;
 		exit;
 	}
 
@@ -105,10 +106,10 @@ if ($scoredata !== false && $scoredata !== 0) {
 					<input type="hidden" name="score" value="<?php echo $scoredata; ?>" />
 					<input class="btn primary" type="submit" />
 				</form>
-				
-				echo "<p><a href=\"http://lytedev.com/files/web/dodge\">Play Game</a></p>";
 
 				<?php 
+
+				echo "<p><a href=\"http://lytedev.com/files/web/dodge\">Play Game</a></p>";
 
 				require("footer.php");
 

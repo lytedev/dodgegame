@@ -228,13 +228,13 @@ body {
   margin-left: 240px;
 }
 a {
-  color: #0069d6;
+  color: #0088ff;
   text-decoration: none;
   line-height: inherit;
   font-weight: inherit;
 }
 a:hover {
-  color: #00438a;
+  color: #0077ff;
   text-decoration: underline;
 }
 .pull-right {
@@ -1713,12 +1713,12 @@ a.menu:after, .dropdown-toggle:after {
   color: #ffffff;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  background-color: #00438a;
+  background-color: #0077ff;
 }
 .pills .active a {
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  background-color: #0069d6;
+  background-color: #0088ff;
 }
 .pills-vertical > li {
   float: none;
@@ -2459,7 +2459,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   display: block;
 }
 .media-grid a:hover {
-  border-color: #0069d6;
+  border-color: #0088ff;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);

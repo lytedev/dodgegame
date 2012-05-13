@@ -105,6 +105,8 @@ if ($scoredata !== false && $scoredata !== 0) {
 					<input type="hidden" name="score" value="<?php echo $scoredata; ?>" />
 					<input class="btn primary" type="submit" />
 				</form>
+				
+				echo "<p><a href=\"http://lytedev.com/files/web/dodge\">Play Game</a></p>";
 
 				<?php 
 
@@ -116,6 +118,7 @@ if ($scoredata !== false && $scoredata !== 0) {
 				require("header.php"); 
 				echo "<p>Congratulations!</p>";
 				printHighscores($hs); 
+				echo "<p><a href=\"http://lytedev.com/files/web/dodge\">Play Game</a></p>";
 				require("footer.php");
 				exit;
 			}
@@ -124,5 +127,6 @@ if ($scoredata !== false && $scoredata !== 0) {
 } else {
 	require("header.php"); 
 	printHighscores();
+	echo "<p><a href=\"http://lytedev.com/files/web/dodge\">Play Game</a></p>";
 	require("footer.php");
 }

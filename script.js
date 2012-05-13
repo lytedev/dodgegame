@@ -3,6 +3,7 @@ sweg.width = 640;
 sweg.height = 360;
 
 enemies = false;
+pickup = false;
 ob = false; 
 
 maxSlomoTime = false;
@@ -16,10 +17,28 @@ spawnChance = false;
 
 cscreen = false;
 
+newPickup = function() {
+	pickup = new sweg.entity();
+	if (Math.random() < 0.1) {
+		pickup.color = "#fb0";
+		pickup.points = 10000;
+	} else {
+		pickup.color = "#4f0";
+		pickup.points = 2000;
+	}
+	pickup.w = 8;
+	pickup.h = 8;
+	pickup.x = (sweg.width * Math.random()) - ob.w;
+	pickup.y = ((sweg.height / 2) * Math.random()) + (sweg.height / 2) - ob.h;
+}
+
 startGame = function() {
 	cscreen = "game"; 
 
 	enemies = [];
+
+	newPickup();
+
 	ob = new sweg.entity(); 
 	ob.color = "#06f";
 	ob.w = 16;
@@ -40,6 +59,7 @@ loseGame = function() {
 	cscreen = "lost"; 
 
 	ob = false;
+	pickup = false;
 
 	maxSlomoTime = 2;
 	slomoCooldown = false;
@@ -51,6 +71,8 @@ loseGame = function() {
 
 introGame = function() {
 	cscreen = "intro"; 
+
+	pickup = false;
 
 	enemies = [];
 	ob = new sweg.entity(); 
@@ -153,6 +175,14 @@ sweg.update = function(dt) {
 			i--;
 		}
 	}
+
+if (ob && pickup && cscreen == "game") {
+	if (pickup.intersectsEntity(ob)) {
+		survivedTime += pickup.points;
+		newPickup();
+	}
+}
+
 	while (Math.random() < spawnChance) {
 		enemy = new sweg.entity();
 		enemy.w = Math.floor((Math.random() * 42) + 3);
@@ -183,6 +213,7 @@ sweg.draw = function(dt) { // dt = delta time in seconds
 			enemies[i].draw(dt);
 		}
 		if (ob) { ob.draw(dt); }
+		if (pickup) { pickup.draw(dt); }
 
 		sweg.ctx.fillStyle = "#111";
 		sweg.ctx.fillRect(8, 8, ((slomoTime / maxSlomoTime) * 100) + 4, 14);

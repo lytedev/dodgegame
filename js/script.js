@@ -243,7 +243,7 @@ sweg.draw = function(dt) { // dt = delta time in seconds
 		sweg.graphics.drawStringWithOutline(Math.floor(survivedTime)+"", sweg.width / 2, y, 5);
 		sweg.graphics.setFont("default");
 		sweg.graphics.drawStringWithOutline("Press 'L' to play again!", sweg.width / 2, y + 30, 3);
-		sweg.graphics.drawStringWithOutline("Created at http://lytedev.com", sweg.width / 2, y + 75, 3);
+		sweg.graphics.drawStringWithOutline("Created at http://lytedev.io", sweg.width / 2, y + 75, 3);
 	} else if (cscreen == "intro") {
 		for (var i = 0; i < enemies.length; i++) {
 			enemies[i].draw(dt);
@@ -262,7 +262,7 @@ sweg.draw = function(dt) { // dt = delta time in seconds
 		sweg.graphics.drawStringWithOutline("Pause with P", sweg.width / 2, y + 60, 3);
 		sweg.graphics.drawStringWithOutline("Don't touch the falling boxes!", sweg.width / 2, y + 75, 3);
 		sweg.graphics.drawStringWithOutline("Press L to start!", sweg.width / 2, y + 105, 3);
-		sweg.graphics.drawStringWithOutline("Created at http://lytedev.com", sweg.width / 2, y + 135, 3);
+		sweg.graphics.drawStringWithOutline("Created at http://lytedev.io", sweg.width / 2, y + 135, 3);
 	}
 
 	if (sweg.paused) {

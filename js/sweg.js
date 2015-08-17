@@ -1,5 +1,15 @@
 // Create sweg variable
-sweg = {}; 
+sweg = {};
+
+sweg.importDirectory = "./js/swegmodules/";
+
+// Import sweg module
+sweg.import = function(file) { 
+  var s = document.createElement("script");
+  s.setAttribute("type", "text/javascript");
+  s.setAttribute("src", this.importDirectory + file);
+  document.body.appendChild(s);
+}
 
 // Create sweg module container
 sweg.modules = []; 
@@ -286,6 +296,7 @@ sweg.prepare = function() {
 	// Make sure the game initializes when the window is ready
 	window.onload = sweg.baseinit;
 };
+
 
 
 

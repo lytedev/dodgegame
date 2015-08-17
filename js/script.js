@@ -1,3 +1,10 @@
+// Comment out any packages you won't need
+sweg.importDirectory = "./js/swegmodules/"
+
+sweg.import("sweggraphics.js");
+sweg.import("swegentity.js");
+sweg.import("sweginput.js");
+
 sweg.useConsole = false;
 sweg.width = 640;
 sweg.height = 360;
@@ -109,14 +116,6 @@ sweg.update = function(dt) {
 	if (sweg.paused) { return; }
 
 	if (cscreen == "lost") {
-		if (sweg.input.isPressed(sweg.input.keys.k)) {
-			var escore = document.getElementById("score-container");
-			var md5d = "secret)_I0gR:Lg[p-353" + Math.floor(survivedTime);
-			escore.value = MD5(md5d) + " " + Math.floor(survivedTime);
-			var sform = document.getElementById("score-form");
-			sform.submit();
-			escore.value = "";
-		}
 	}
 
 	if (dt > 0.2) { dt = 0.2; }
@@ -244,7 +243,6 @@ sweg.draw = function(dt) { // dt = delta time in seconds
 		sweg.graphics.drawStringWithOutline(Math.floor(survivedTime)+"", sweg.width / 2, y, 5);
 		sweg.graphics.setFont("default");
 		sweg.graphics.drawStringWithOutline("Press 'L' to play again!", sweg.width / 2, y + 30, 3);
-		sweg.graphics.drawStringWithOutline("Press 'K' to submit your score!", sweg.width / 2, y + 45, 3);
 		sweg.graphics.drawStringWithOutline("Created at http://lytedev.com", sweg.width / 2, y + 75, 3);
 	} else if (cscreen == "intro") {
 		for (var i = 0; i < enemies.length; i++) {
